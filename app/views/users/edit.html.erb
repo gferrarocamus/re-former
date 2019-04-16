@@ -1,0 +1,12 @@
+<%= form_tag('/users') do %>
+  <%= label_tag(:email, 'Email:') %>
+  <%= email_field(:user, :email, placeholder: 'Enter your email', autofocus: '') %>
+
+  <%= label_tag(:username, 'Username:') %>
+  <%= text_field(:user, :username, placeholder: 'Enter a unique username') %>
+  
+  <%= label_tag(:password, 'Password:') %>
+  <%= password_field(:user, :password, placeholder: 'Enter a strong password') %>
+
+  <%= submit_tag("Signup") %>
+<% end %>

@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'users#new'
   resources :users, only: [:create, :new]
-  patch 'users/new/#{id}', to: 'users#update'
+  get 'users/:id/edit', to: 'users#edit'
+  patch 'users/:id', to: 'users#update'
 end
