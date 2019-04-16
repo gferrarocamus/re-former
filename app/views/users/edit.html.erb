@@ -1,4 +1,17 @@
-<%= form_tag('/users') do %>
+
+<% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+ 
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_for(@user, url: users_path(@user)) do %>
   <%= label_tag(:email, 'Email:') %>
   <%= email_field(:user, :email, placeholder: 'Enter your email', autofocus: '') %>
 
@@ -8,5 +21,5 @@
   <%= label_tag(:password, 'Password:') %>
   <%= password_field(:user, :password, placeholder: 'Enter a strong password') %>
 
-  <%= submit_tag("Signup") %>
+  <%= submit_tag("Edit") %>
 <% end %>
