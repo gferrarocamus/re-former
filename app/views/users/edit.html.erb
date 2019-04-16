@@ -11,15 +11,15 @@
   </div>
 <% end %>
 
-<%= form_for(@user, url: users_path(@user)) do %>
+<%= form_for(@user) do |f| %>
   <%= label_tag(:email, 'Email:') %>
-  <%= email_field(:user, :email, placeholder: 'Enter your email', autofocus: '') %>
+  <%= f.email_field(:email, placeholder: 'Enter your email', autofocus: '') %>
 
   <%= label_tag(:username, 'Username:') %>
-  <%= text_field(:user, :username, placeholder: 'Enter a unique username') %>
+  <%= f.text_field(:username, placeholder: 'Enter a unique username') %>
   
   <%= label_tag(:password, 'Password:') %>
-  <%= password_field(:user, :password, placeholder: 'Enter a strong password') %>
+  <%= f.password_field(:password, placeholder: 'Enter a strong password') %>
 
-  <%= submit_tag("Edit") %>
+  <%= f.submit("Edit") %>
 <% end %>
